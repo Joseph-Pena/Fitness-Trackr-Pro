@@ -1,26 +1,25 @@
 import { useState, useEffect } from "react";
 import { getActivities } from "../api/activities";
-
 import ActivityList from "./ActivityList";
 import ActivityForm from "./ActivityForm";
 
 export default function ActivitiesPage() {
   const [activities, setActivities] = useState([]);
 
-  const syncActivities = async () => {
+  const syncActivites = async () => {
     const data = await getActivities();
     setActivities(data);
   };
 
   useEffect(() => {
-    syncActivities();
+    syncActivites();
   }, []);
 
   return (
     <>
       <h1>Activities</h1>
-      <ActivityList activities={activities} syncActivities={syncActivities} />
-      <ActivityForm syncActivities={syncActivities} />
+      <ActivityList activities={activities} />
+      <ActivityForm syncActivities={syncActivites} />
     </>
-  );
+  )
 }
