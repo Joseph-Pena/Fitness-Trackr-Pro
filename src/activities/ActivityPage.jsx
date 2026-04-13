@@ -34,8 +34,8 @@ export default function ActivityPage() {
   return (
     <>
       <h1>{activity.name}</h1>
+      <p>by {activity.creatorName}</p>
       <p>{activity.description}</p>
-      <p>Posted by: {activity.creator?.username}</p>
       {token && <button onClick={tryDelete}>Delete</button>}
       {error && <p role="alert">{error}</p>}
     </>
